@@ -281,8 +281,3 @@ PS. To reach me in the past use the code: FLAG={<next move><public IP of this ma
 
 [[3] Vulnerable printf - Syracuse University material - Format_String.pdf](https://web.ecs.syr.edu/~wedu/Teaching/cis643/LectureNotes_New/Format_String.pdf)
 
-
-
-- __Οχι spoilers__
-- __Οχι DoS__ ή brute force. Μπορείτε να χρησιμοποιείτε scripts, αλλά όποιος βαράει στα τυφλά μηδενίζεται
-   (θέλουμε οι servers να είναι accessible από όλους). Αν δεν είστε σίγουροι αν κάτι επιτρέπεται, απλά ρωτήστε.
