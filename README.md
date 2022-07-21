@@ -492,6 +492,7 @@ PS. To reach me in the past use the code: FLAG={<next move><public IP of this ma
 
 ![six-payload](./six-payload.png)
 
+Αφού βρήκαμε ότι η IP είναι 54.210.15.244, τότε το flag είναι FLAG={c454.210.15.244}
 
 # References
 

