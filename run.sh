@@ -19,7 +19,7 @@ cd five/
 
 python3 five-target.py
 
-# give max time 8 seconds so that curl stops expected for data
+# give max time 8 seconds so that curl stops expecting for data
 cat payload.bin | curl --trace - \
 	-X POST \
 	--socks5-hostname localhost:9050 \
